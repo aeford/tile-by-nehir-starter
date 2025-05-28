@@ -3,20 +3,34 @@
    You'll enhance the layout further using Bootstrap during the LiveLab.
 */
 
+/* Earthy, tile-inspired color scheme */
+:root {
+  --site-bg: #f5ede6;         /* Soft cream background */
+  --site-text: #3e2723;       /* Deep brown for text */
+  --site-primary: #b76e48;    /* Terracotta accent */
+  --site-secondary: #4e7c7c;  /* Muted teal accent */
+  --site-light: #fff;
+}
+
 /* Set a soft textured background for the whole page */
 body {
+  background-color: var(--site-bg);
   background-image: url('assets/offwhite-background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
   padding: 16px; /* Adds space around edges on small screens */
+  color: var(--site-text);
 }
 
 /* Header polish */
 h1 {
   padding: 8px;
   border-radius: 4px;
+  background-color: var(--site-primary) !important;
+  color: var(--site-light) !important;
+  font-family: 'Playfair Display', serif;
 }
 
 /* Limit image dimensions so tiles don’t overflow the layout */
@@ -31,6 +45,7 @@ img {
   border-image: url('assets/wood.jpg') 30 round;
   padding: 5px;
   background-color: white;
+  border-color: var(--site-secondary) !important;
 }
 
 /* Optional caption style if you add labels under your tiles */
@@ -39,6 +54,13 @@ img {
   margin-top: 8px;
   font-size: 14px;
   color: #444;
+}
+
+/* Optional: subtle hover effect for warmth */
+.border-tile:hover {
+  box-shadow: 0 0 0 4px var(--site-primary), 0 4px 16px rgba(183,110,72,0.15);
+  transform: scale(1.03);
+  transition: box-shadow 0.2s, transform 0.2s;
 }
 
 /* 💡 Optional Enhancements:

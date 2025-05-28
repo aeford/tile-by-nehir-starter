@@ -9,7 +9,7 @@ body {
 
 /* 🧠 Basic content styling for non-parallax sections */
 .content {
-  background-color: #f9f9f9;
+  background-color: #e3f4fa; /* Light blue to match image highlight */
   padding: 60px 20px;
   text-align: center;
 }
@@ -34,32 +34,56 @@ body {
   color: white;
 
   /* 👀 You’ll add position and layering properties if you use overlays */
+  position: relative; /* Needed for overlay positioning */
+  overflow: hidden;   /* Ensures overlay stays within section */
 }
 
 /* 🧠 Step 2: Add a background image for each parallax section */
 .hero {
   /* Example: background-image: url("assets/image1.jpg"); */
+  background-image: url("image1.jpg");
 }
 
 .quiet {
   /* Example: background-image: url("assets/image2.jpg"); */
+  background-image: url("image2.jpg");
+
 }
 
 .home {
   /* Example: background-image: url("assets/image3.jpg"); */
+  background-image: url("image3.jpg");
 }
 
 /* ✨ Optional Styling: Add overlay effect to parallax headings */
 .parallax h1,
 .parallax h2 {
-  /* 📌 Adds a dark overlay behind text to improve readability on images */
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 16px 24px;
-  border-radius: 4px;
+  /* Cleaner, lighter highlight for text overlay */
+  background: rgba(255, 255, 255, 0.18);
+  color: #000; /* Pure black for maximum contrast */
+  padding: 12px 28px;
+  border-radius: 24px;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
 
-  /* 💬 Style tweaks to enhance visibility and impact */
-  font-weight: 600;
-  font-size: 40px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  /* Typography tweaks for cohesion and visibility */
+  font-weight: 700; /* Bolder for visibility */
+  font-size: 2.5rem;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.parallax::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255,255,255,0.25); /* Light overlay */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.parallax > * {
+  position: relative;
+  z-index: 2;
 }
